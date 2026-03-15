@@ -1,0 +1,20 @@
+inputFile               : MeshInput
+toolVersion             : 0.0.0
+%_______________________________________________________________________________________________________
+% Mesh input file (structured quadrangular skin/stringer mesh + rib surfaces)
+%  - MESH.DIV_PER_CONNECTION: one value per SECTION.CONNECTIVITY edge, same order
+%  - MESH.ELEMS_BETWEEN_RIBS:
+%       nRibs<=1 -> one value
+%       nRibs>1  -> nRibs values (0->rib1, rib1->rib2, ... rib(n-1)->ribn)
+%  - Rib surfaces defined by clockwise node loops (3 or 4 nodes)
+%  - Rib surface type per surface: 'tria' or 'quad'
+%_______________________________________________________________________________________________________
+
+<START>
+
+MESH.DIV_PER_CONNECTION : [8 8 8 8 8 8 4 4]
+MESH.ELEMS_BETWEEN_RIBS : [10 10 10 10 10]
+MESH.RIB_SURFACES       : {[1 2 6], [2 3 5 6], [3 4 5]}
+MESH.RIB_SURFACE_TYPES  : {'tria', 'quad', 'tria'}
+
+<END>

@@ -1,0 +1,22 @@
+inputFile               : CrossSection
+toolVersion             : 0.0.0
+%_______________________________________________________________________________________________________
+% Cross-section input file (node-based section definition)
+%  - Only lines between <START> and <END> are processed
+%  - Use "KEY : VALUE"
+%  - SECTION.NODES is Nx3 numeric matrix [nodeId x z]
+%  - SECTION.CONNECTIVITY is Mx2 numeric matrix [nodeId_i nodeId_j]
+%_______________________________________________________________________________________________________
+
+<START>
+
+SECTION.NAME            : 'OriginalBDF_constantSection'
+SECTION.NODES           : [1 0.00 0.00; 2 0.25 0.05; 3 0.75 0.05; 4 1.00 0.00; 5 0.75 -0.05; 6 0.25 -0.05]
+SECTION.CONNECTIVITY    : [1 2; 2 3; 3 4; 4 5; 5 6; 6 1; 2 6; 3 5]
+
+<END>
+
+% NOTES:
+% - Nodes are section corner/intersection points only.
+% - Mesh nodes are intentionally not included.
+% - Coordinates are normalized with chord c = 1.0.

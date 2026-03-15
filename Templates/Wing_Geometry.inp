@@ -1,0 +1,22 @@
+inputFile               : WingGeometry
+toolVersion             : 0.0.0
+%_______________________________________________________________________________________________________
+% Wing geometry input file
+%  - WING.CHORD can be scalar or a vector [c1 c2 ... cN]
+%  - WING.STRINGERS are node-id pairs [id_i id_j] referencing cross-section nodes
+%  - WING.RIB_POSITIONS are normalized along span: 0=root, 1=tip
+%_______________________________________________________________________________________________________
+
+<START>
+
+WING.NAME               : 'ExampleWing_5mSemispan'
+WING.SEMISPAN           : 5.0
+WING.CHORD              : 1.0
+WING.SWEEP_DEG          : 0.0
+WING.DIHEDRAL_DEG       : 0.0
+WING.TWIST_DEG          : 0.0
+WING.STRINGERS          : [2 6; 3 5]
+WING.N_RIBS             : 5
+WING.RIB_POSITIONS      : [0.2 0.4 0.6 0.8 1.0]
+
+<END>

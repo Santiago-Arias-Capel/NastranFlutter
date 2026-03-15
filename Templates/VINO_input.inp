@@ -1,0 +1,180 @@
+inputFile               : VINO
+toolVersion             : 0.0.0
+%_______________________________________________________________________________________________________
+% General rules for this input file
+%  - The inputFile and toolVersion commands should always be specified before <START>
+%  - Only lines between the <START> and <END> commands are processed
+%  - Commands can be assigned by specifying a value after the semicolon
+%  - Only lines with a semicolon are processed
+%  - Use a space on both sides of the semicolon
+%  - Lines beginning with a percent sign are not processed
+%  - Comments can be added after a value after a percent sign (e.g. "COMMAND : VALUE  % COMMENT" )
+%_______________________________________________________________________________________________________
+
+<START> % Lines after this point are processed
+
+% REQUIRED COMMANDS (paths + steps)
+SAMVIEW_DATA_PATH                                   : s:\NPD\TUR\D6\NG13\44\D6NG13NPDTUR-44a\Res\Ver_Resonance_V01\SiFAnaRes\samviewData.mat
+FLUTTER_TXT_PATH                                    : {'s:\NPD\TUR\D6\NG13\44\D6NG13NPDTUR-44a\Post\11_Stability\Flutter\Ver_Flutter_mainFlutter_rev00\01.FlutterSpeeds_multiBlade.txt'}
+CHANNEL.ROLE.RPM                                    : 'vel_azi'
+CHANNEL.ROLE.PITCH                                  : 'ang_pit 1'
+CHANNEL.ROLE.LOADS                                  : {'vel_azi','My_B1_S_0000000_000.0','My_B1_E_0064151_000.0','My_B1_E_0064151_000.0','My_B1_E_0106491_000.0'}
+CHANNEL.ROLE.LOAD_THRESHOLD                         : 'My_B1_E_0106491_000.0'
+CHANNEL.ROLE.BLADE_UX                               : 'uB1_x n20'
+CHANNEL.ROLE.BLADE_UY                               : 'uB1_y n20'
+CHANNEL.ROLE.BLADE_AZ                               : 'aB1_z n20'
+THRESHOLD.DESIGN_LOAD_MAX                           : 2290
+THRESHOLD.PSF                                       : 1.35
+THRESHOLD.TF                                        : 0.85
+
+doReadFlutterEnvelope                               : false
+doReadTimeSeries                                    : false
+doPost                                              : true
+doPlotMaxRPM                                        : true
+doPlotMeanPitchA                                    : true
+doPlotStartVibrationPitchRPMDominantFrequency       : true
+doPlotEndVibrationPitchRPMDominantFrequency         : true
+doPlotEndVibrationPitchRPMDominantEnergyByFrequencyBins : true
+doPlotEndVibrationPitchRPMLogDecrement              : true
+doPlotEndVibrationPitchRPMClassification            : true
+doPlotEndVibrationPitchRPMLoad                      : true
+doPlotVectorVibrationPitchRPMWindSpeed              : true
+doPlotVectorVibrationPitchRPMBuildUpTime            : true
+doPlotDebugVibrationsOnsetDetectionComparison       : false
+
+% OPTIONAL COMMANDS (blank = use default from parameter.m)
+ROTOR.RATED_SPEED                                   :                        % DEFAULT: 6.75
+ROTOR.OVR_SPEED                                     :                        % DEFAULT: 8.235
+OUTPUT.FIG_DIR                                      :                        % DEFAULT: '_Figures'
+OUTPUT.DAT_DIR                                      :                        % DEFAULT: '_Dat'
+PSD.WIN_SEC                                         :                        % DEFAULT: 20
+PSD.OVLP                                            :                        % DEFAULT: 0.5
+PSD.FMAX_HZ                                         :                        % DEFAULT: 3
+PSD.NFFT_MULT                                       :                        % DEFAULT: 8
+PSD.NFFT_MIN                                        :                        % DEFAULT: 1024
+PSD.BUMP_HALF_WIDTH                                 :                        % DEFAULT: 50
+PSD.RES_TAIL_LENGTH                                 :                        % DEFAULT: 100
+PSD.NMODES                                          :                        % DEFAULT: 12
+PSD.SMOOTH_HZ                                       :                        % DEFAULT: 0.03
+PSD.PEAK_PROM_FRAC                                  :                        % DEFAULT: 0.02
+PSD.MIN_PEAK_DIST_FRACP                             :                        % DEFAULT: 0.35
+PSD.INT_HALF_WIDTH_FRACP                            :                        % DEFAULT: 0.20
+HP.FCUT                                             :                        % DEFAULT: 0.5
+HP.ORDER                                            :                        % DEFAULT: 4
+HP.K_SIGMA                                          :                        % DEFAULT: 0.5
+HP.MIN_TIME                                         :                        % DEFAULT: 10
+HP.INIT_TIME                                        :                        % DEFAULT: 0
+DETECT_VIB.STD_THRES                                :                        % DEFAULT: [0.5 2]
+DETECT_VIB.PITCH_SWITCH_DEG                         :                        % DEFAULT: 10
+DETECT_VIB.PITCH_MEAN_WIN_SEC                       :                        % DEFAULT: 10
+DETECT_VIB.MIN_TIME                                 :                        % DEFAULT: 30
+DETECT_VIB.MOVSTD_WIN_SAMPLES                       :                        % DEFAULT: 100
+DETECT_VIB.GROWTH_WIN_SEC                           :                        % DEFAULT: 10
+DETECT_VIB.GROWTH_THRES                             :                        % DEFAULT: 1000
+DETECT_VIB.SCALE_FACT_U                             :                        % DEFAULT: 1
+DETECT_VIB.SCALE_FACT_A                             :                        % DEFAULT: 1
+DETECT_VIB.FAST_PITCH_SCALE                         :                        % DEFAULT: 2
+DETECT_VIB.SLOW_PITCH_SCALE                         :                        % DEFAULT: 0.5
+DETECT_VIB.FAST_FILT_SCALE                          :                        % DEFAULT: 0.5
+DETECT_VIB.SLOW_FILT_SCALE                          :                        % DEFAULT: 2.0
+DETECT_VIB.ENV_PEAK_MOVMEAN_SEC                     :                        % DEFAULT: 30
+DETECT_VIB.END_VIB_MOVMEAN_SEC                      :                        % DEFAULT: 30
+DETECT_VIB.END_VIB_RPM_THRES                        :                        % DEFAULT: 0.3
+DETECT_VIB.END_VIB_PEAK_SEARCH_SEC                  :                        % DEFAULT: 50
+PLOT.doPlotDebugVibrationsOnsetDetectionComparison  :                        % DEFAULT: false
+ORDERS.ROT_ORDERS_SEL                               :                        % DEFAULT: [1 3 6 9 12]
+PLOT.LABEL_STRIDE                                   :                        % DEFAULT: 1
+PLOT.IHS_RPM                                        :                        % DEFAULT: 9.2
+PLOT.IHS_RPM_FACTOR                                 :                        % DEFAULT: 1.05
+PLOT.NCOL                                           :                        % DEFAULT: 256
+PLOT.NCOL_DOM_SCATTER                               :                        % DEFAULT: 8
+
+<END> % Lines after this point are not processed
+
+%_______________________________________________________________________________________________________
+% REQUIRED INPUTS
+%_______________________________________________________________________________________________________
+% inputFile     : Tool identifier. Must be VINO.
+% toolVersion   : Input format version. Must be 0.0.0.
+%
+% SAMVIEW_DATA_PATH : Full path to samviewData.mat used by readStats/classifySimulations.
+% FLUTTER_TXT_PATH  : Cell array of one or more flutter envelope txt files.
+% THRESHOLD.DESIGN_LOAD_MAX          : Design load value used for threshold/deviation metrics.
+% THRESHOLD.PSF                      : Partial safety factor.
+% THRESHOLD.TF                       : Tolerance factor used in load threshold.
+% CHANNEL.ROLE.RPM                   : Channel name for rotor speed.
+% CHANNEL.ROLE.PITCH                 : Channel name for blade pitch.
+% CHANNEL.ROLE.LOADS                 : Cell array of load channels for PSD analysis/plots/maps.
+% CHANNEL.ROLE.LOAD_THRESHOLD        : Load channel used for thresholding/deviation/log-decrement/load plots (must be in CHANNEL.ROLE.LOADS).
+% CHANNEL.ROLE.BLADE_UX              : Channel name for blade x-displacement signal.
+% CHANNEL.ROLE.BLADE_UY              : Channel name for blade y-displacement signal.
+% CHANNEL.ROLE.BLADE_AZ              : Channel name for blade z-acceleration signal.
+% Load threshold                     : Design / (PSF * TF)
+%
+% All do* commands below are REQUIRED and must be true/false:
+% doReadFlutterEnvelope                         : Read flutter envelope txt and save flutter_env.mat.
+% doReadTimeSeries                              : Read/process time-series data and save TS_data.mat.
+% doPost                                        : Run Post.m and save results.mat.
+% doPlotMaxRPM                                  : Plot max rotor speed map.
+% doPlotMeanPitchA                              : Plot mean blade 1 pitch map.
+% doPlotStartVibrationPitchRPMDominantFrequency : Scatter start-vibration pitch vs RPM colored by dominant frequency.
+% doPlotEndVibrationPitchRPMDominantFrequency   : Scatter end-vibration pitch vs RPM colored by dominant frequency.
+% doPlotEndVibrationPitchRPMDominantEnergyByFrequencyBins : Combined figure with 2x4 energy-bin panels + end dominant-frequency scatter.
+% doPlotEndVibrationPitchRPMLogDecrement        : Scatter end-vibration pitch vs RPM colored by load logarithmic decrement.
+% doPlotEndVibrationPitchRPMClassification      : Scatter end-vibration pitch vs RPM colored by Fast/Slow classification.
+% doPlotEndVibrationPitchRPMLoad                : Scatter end-vibration pitch vs RPM colored by end-vibration load.
+% doPlotVectorVibrationPitchRPMWindSpeed        : Vector plot from start->end pitch/RPM colored by wind speed.
+% doPlotVectorVibrationPitchRPMBuildUpTime      : Vector plot from start->end pitch/RPM colored by build-up time bins.
+% doPlotDebugVibrationsOnsetDetectionComparison : Enable debug onset-detection plotting flag.
+%
+%_______________________________________________________________________________________________________
+% OPTIONAL INPUTS
+%_______________________________________________________________________________________________________
+% Optional commands map directly to fields in "param" via dotted paths.
+% If left blank, VINO uses the default in parameter.m.
+%
+% ROTOR.RATED_SPEED                    : Rated rotor speed [rpm].
+% ROTOR.OVR_SPEED                      : Overspeed rotor speed threshold [rpm].
+% OUTPUT.FIG_DIR                       : Output folder for figures.
+% OUTPUT.DAT_DIR                       : Output folder for .mat data.
+% PSD.WIN_SEC                          : Welch window length [s].
+% PSD.OVLP                             : Welch overlap fraction [0..1].
+% PSD.FMAX_HZ                          : Max frequency of interest [Hz].
+% PSD.NFFT_MULT                        : Zero-padding factor relative to Welch window length.
+% PSD.NFFT_MIN                         : Minimum NFFT to improve PSD frequency-grid resolution.
+% PSD.BUMP_HALF_WIDTH                  : Half-width around first bump max [s].
+% PSD.RES_TAIL_LENGTH                  : Tail length for resonance PSD window [s].
+% PSD.NMODES                           : Number of rotating modes/orders extracted.
+% PSD.SMOOTH_HZ                        : Spectral smoothing bandwidth [Hz].
+% PSD.PEAK_PROM_FRAC                   : Minimum peak prominence (fraction of max).
+% PSD.MIN_PEAK_DIST_FRACP              : Minimum peak distance as fraction of 1P.
+% PSD.INT_HALF_WIDTH_FRACP             : Integration half-width around peak as fraction of 1P.
+% HP.FCUT                              : High-pass cutoff frequency [Hz].
+% HP.ORDER                             : High-pass Butterworth order.
+% HP.K_SIGMA                           : Baseline sigma multiplier for threshold.
+% HP.MIN_TIME                          : Ignore initial time before HP detection [s].
+% HP.INIT_TIME                         : Initial time offset for HP detection [s].
+% DETECT_VIB.STD_THRES                 : d/dt(std(acc)) thresholds for low/high pitch.
+% DETECT_VIB.PITCH_SWITCH_DEG          : Pitch split threshold between low/high regimes [deg].
+% DETECT_VIB.PITCH_MEAN_WIN_SEC        : Window for mean pitch at onset [s].
+% DETECT_VIB.MIN_TIME                  : Earliest time to start vibration detection [s].
+% DETECT_VIB.MOVSTD_WIN_SAMPLES        : Moving-std window [samples].
+% DETECT_VIB.GROWTH_WIN_SEC            : Window for growth-rate assessment [s].
+% DETECT_VIB.GROWTH_THRES              : Growth threshold for fast/slow classification.
+% DETECT_VIB.SCALE_FACT_U              : Scale factor for displacement channels u_x/u_y.
+% DETECT_VIB.SCALE_FACT_A              : Scale factor for acceleration channel a_z.
+% DETECT_VIB.FAST_PITCH_SCALE          : Pitch-threshold scale for fast-growth case.
+% DETECT_VIB.SLOW_PITCH_SCALE          : Pitch-threshold scale for slow-growth case.
+% DETECT_VIB.FAST_FILT_SCALE           : Filter scale for fast-growth case.
+% DETECT_VIB.SLOW_FILT_SCALE           : Filter scale for slow-growth case.
+% DETECT_VIB.ENV_PEAK_MOVMEAN_SEC      : Movmean window for envelope-slope peak timing [s].
+% DETECT_VIB.END_VIB_MOVMEAN_SEC       : Movmean window on RPM for end-of-vibration detection [s].
+% DETECT_VIB.END_VIB_RPM_THRES         : RPM drop threshold for end-of-vibration [rpm].
+% DETECT_VIB.END_VIB_PEAK_SEARCH_SEC   : Post-onset window to find RPM peak for end criterion [s].
+% PLOT.doPlotDebugVibrationsOnsetDetectionComparison : Default debug-plot flag in param.PLOT.
+% ORDERS.ROT_ORDERS_SEL                : Rotating orders to report/plot.
+% PLOT.LABEL_STRIDE                    : Label every N-th point.
+% PLOT.IHS_RPM                         : Reference RPM for IHS guide line.
+% PLOT.IHS_RPM_FACTOR                  : Multiplier for second IHS guide line.
+% PLOT.NCOL                            : Colormap resolution.
+% PLOT.NCOL_DOM_SCATTER                : Colormap resolution for start/end dominant scatter plots.
